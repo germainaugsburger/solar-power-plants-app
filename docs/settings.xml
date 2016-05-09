@@ -4,8 +4,8 @@
 	<servers>
 		<server>
 			<id>predix.repo</id>
-			<username>(predix.io.username.here)</username>
-			<password>(artifactory.encrypted.password.here aka API Key obtained from logging in to artifactory web page https://artifactory.predix.io</password>
+			<username>your.predix.io.username</username>
+			<password>your.encrypted.password</password> <!-- Obtained from https://artifactory.predix.io -->
 		</server>
 	</servers>
 	<!--<proxies>
