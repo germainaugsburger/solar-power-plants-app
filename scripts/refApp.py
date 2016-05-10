@@ -963,9 +963,9 @@ def getDataseedUrl(config):
 
 
 def uploadFile(url, data, files):
-    httpProxy=os.environ["http_proxy"]
-    print("Proxy =" + httpProxy)
-    if httpProxy:
+    httpProxy=os.environ.get('http_proxy')
+    if httpProxy is not None:
+    	print("Proxy =" + httpProxy)
     	proxyHostPort=httpProxy.split("http://")[1]
     	proxyHost=proxyHostPort.split(":")[0]
     	proxyPort=proxyHostPort.split(":")[1]
