@@ -1068,7 +1068,7 @@ def getWebsocketAppInfo(config):
 		print (cfTarget)
 		config.WEB_SOCKET_HOST=cfTarget.split('urls:')[1].strip().split('last uploaded:')[0].strip()
 		print ('WS ingestion URL '+config.WEB_SOCKET_HOST)
-		config.LIVE_DATA_WS_URL="wss://"+config.WEB_SOCKET_HOST+"/livestream"
+		config.LIVE_DATA_WS_URL="wss://"+config.WEB_SOCKET_HOST
 		print ('LIVE_DATA_WS_URL '+config.LIVE_DATA_WS_URL)
 
 def deployReferenceAppCreateWebsocketServer(config):
