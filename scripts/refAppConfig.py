@@ -167,14 +167,14 @@ if environment == 'PROD':
     predixAssetService = "predix-asset"
     predixTimeSeriesService = "predix-timeseries"
     predixPostgres = "postgres"
-    predixRedis = "redis"
+    predixRedis = "redis-predix"
 
     predixUaaServicePlan = "Tiered"
     predixAcsServicePlan = "Tiered"
     predixAssetServicePlan = "Tiered"
     predixTimeSeriesServicePlan = "Bronze"
     predixPostgresPlan = "shared"
-    predixRedisPlan = "shared-vm"
+    predixRedisPlan = "shared"
     artifactoryrepo = "https://artifactory.predix.io/artifactory/PREDIX-EXT"
 else :
     # Predix Service Instance Name for sysint
