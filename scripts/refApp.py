@@ -172,41 +172,76 @@ def cfPush(cfCommand, projectDir):
 
 	return statementStatus
 
-def deleteExistingApplication(applicationName):
-	deleteRequest = "cf delete -f -r " + applicationName
+def deleteExistingApplications(config):
+	deleteRequest = "cf delete -f -r " + config.predixbootAppName
 	statementStatus  = subprocess.call(deleteRequest, shell=True)
 
 	if statementStatus == 1 :
 		print("Error deleting an application: " +deleteRequest)
-		time.sleep(5)  # Delay for 5 seconds
-		deleteExistingApplication(applicationName)
-	statementStatus = subprocess.call("cf a | grep " + applicationName + " | wc -l",shell=True)
-
+	time.sleep(5)  # Delay for 5 seconds
+	deleteRequest = "cf delete -f -r " +config.dataSeedAppName
+	statementStatus  = subprocess.call(deleteRequest, shell=True)
 	if statementStatus == 1 :
 		print("Error deleting an application: " +deleteRequest)
-		time.sleep(5)  # Delay for 5 seconds
-		deleteExistingApplication(applicationName)
+	time.sleep(5)  # Delay for 5 seconds
+	deleteRequest = "cf delete -f -r " +config.dataSourceAppName
+	statementStatus  = subprocess.call(deleteRequest, shell=True)
+	if statementStatus == 1 :
+		print("Error deleting an application: " +deleteRequest)
+	time.sleep(5)  # Delay for 5 seconds
+	deleteRequest = "cf delete -f -r " +config.websocketAppName
+	statementStatus  = subprocess.call(deleteRequest, shell=True)
+	if statementStatus == 1 :
+		print("Error deleting an application: " +deleteRequest)
+	time.sleep(5)  # Delay for 5 seconds
+	deleteRequest = "cf delete -f -r " +config.dataIngestionAppName
+	statementStatus  = subprocess.call(deleteRequest, shell=True)
+	if statementStatus == 1 :
+		print("Error deleting an application: " +deleteRequest)
+	time.sleep(5)  # Delay for 5 seconds
+	deleteRequest = "cf delete -f -r " +config.machineSimulatorAppName
+	statementStatus  = subprocess.call(deleteRequest, shell=True)
+	if statementStatus == 1 :
+		print("Error deleting an application: " +deleteRequest)
+	time.sleep(5)  # Delay for 5 seconds
+	deleteRequest = "cf delete -f -r " +config.uiAppName
+	statementStatus  = subprocess.call(deleteRequest, shell=True)
+	if statementStatus == 1 :
+		print("Error deleting an application: " +deleteRequest)
+	time.sleep(10)  # Delay for 10 seconds
+	return statementStatus
 
-def deleteExistingService(config, serviceName):
+def deleteExistingServices(config):
 	print("Delete Services>? : "+config.allDeploy)
 	if config.allDeploy in ('y','Y'):
-		deleteRequest = "cf delete-service -f " + serviceName
-		statementStatus  = subprocess.call(deleteRequest, shell=True)
+		#delete UAA instance
 
+		deleteRequest = "cf delete-service -f "
+		statementStatus  = subprocess.call(deleteRequest+config.rmdUaaName, shell=True)
 		if statementStatus == 1 :
-			print("Error deleting an service: " +deleteRequest)
-			time.sleep(5)  # Delay for 5 seconds
-			statementStatus  = subprocess.call(deleteRequest, shell=True)
-			if statementStatus == 1 :
-				print("Error deleting an service: " +deleteRequest)
-				time.sleep(5)  # Delay for 5 seconds
-				sys.exit("Error deleting an service instance: " +serviceName)
-
-		statementStatus = subprocess.call("cf a | grep " + serviceName + " | wc -l",shell=True)
+			sys.exit("Error deleting an service instance: " +config.rmdUaaName)
+		time.sleep(10)  # Delay
+		statementStatus  = subprocess.call(deleteRequest+config.rmdAcsName, shell=True)
 		if statementStatus == 1 :
-			print("Error deleting an service: " +deleteRequest)
-			time.sleep(5)  # Delay for 5 seconds
-			deleteExistingService(config,serviceName)
+			sys.exit("Error deleting an service instance: " +config.rmdAcsName)
+		time.sleep(3)  # Delay
+		statementStatus  = subprocess.call(deleteRequest+config.rmdPredixAssetName, shell=True)
+		if statementStatus == 1 :
+			sys.exit("Error deleting an service instance: " +config.rmdPredixAssetName)
+		time.sleep(3)  # Delay
+		statementStatus  = subprocess.call(deleteRequest+config.rmdPredixTimeseriesName, shell=True)
+		if statementStatus == 1 :
+			sys.exit("Error deleting an service instance: " +config.rmdPredixTimeseriesName)
+		time.sleep(3)  # Delay
+		statementStatus  = subprocess.call(deleteRequest+config.rmdPostgres, shell=True)
+		if statementStatus == 1 :
+			sys.exit("Error deleting an service instance: " +config.rmdPostgres)
+		time.sleep(3)  # Delay
+		statementStatus  = subprocess.call(deleteRequest+config.rmdRedis, shell=True)
+		if statementStatus == 1 :
+			sys.exit("Error deleting an service instance: " +config.rmdRedis)
+		time.sleep(20)  # Delay
+		return statementStatus
 
 def createPredixUAASecurityService(config):
 	if config.allDeploy in ('y','Y'):
@@ -272,7 +307,7 @@ def deployAndBindUAAToPredixBoot(config):
 
 
 def invokeURLJsonResponse(url, headers1, data, method):
-	responseCode = invokeURL(url, headers1, data, method)
+	responseCode = invokeURL(url, headers1, data, method)	
         print ("*******OUTPUT**********" +  open("json_output.txt").read())
         return json.loads(open("json_output.txt").read())
 
@@ -298,7 +333,7 @@ def invokeURL(url, headers1, data, method):
                 with open("json_output.txt", "wb") as local_file:
                         local_file.write(result.read())
 		print ("RESPONSE ***")
-		responseCode = result.getcode()
+		responseCode = result.getcode()	
 		print (responseCode)
 		print (result.info())
         except URLError as err:
@@ -779,24 +814,8 @@ def deployReferenceAppDelete(config):
 		print("****************** Installing deployReferenceAppDelete ******************")
 		config.current='deployReferenceAppDelete'
 		# Deleting existing Applications and Services
-		deleteExistingApplication(config.predixbootAppName)
-		deleteExistingApplication(config.dataSeedAppName)
-		deleteExistingApplication(config.dataSourceAppName)
-		deleteExistingApplication(config.websocketAppName)
-		deleteExistingApplication(config.dataIngestionAppName)
-		deleteExistingApplication(config.machineSimulatorAppName)
-		deleteExistingApplication(config.uiAppName)
-
-		deleteExistingService(config,config.rmdUaaName)
-		#deleteExistingService(config,config.rmdAcsName)
-		deleteExistingService(config,config.rmdPredixAssetName)
-		deleteExistingService(config,config.rmdPredixTimeseriesName)
-		deleteExistingService(config,config.rmdPostgres)
-		deleteExistingService(config,config.rmdRedis)
-		deleteExistingService(config,config.rmdUaaName)
-		deleteExistingService(config,config.rmdUaaName)
-		deleteExistingService(config,config.rmdUaaName)
-
+		deleteExistingApplications(config)
+		deleteExistingServices(config)
 		config.retryCount=0
 	except:
 		print(traceback.print_exc())
@@ -959,7 +978,7 @@ def uploadFile(url, data, files):
 	connection.set_debuglevel(3)
     	connection.request ('POST', url + "/uploadAssetData",
                         *encode_multipart_data (data, files))
-    else:
+    else: 
     	connection = HTTPSConnection (url.split("https://")[1])
 	connection.set_debuglevel(3)
     	connection.request ('POST', "/uploadAssetData",
