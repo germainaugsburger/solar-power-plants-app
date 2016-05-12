@@ -788,7 +788,7 @@ def deployReferenceAppDelete(config):
 		deleteExistingApplication(config.uiAppName)
 
 		deleteExistingService(config,config.rmdUaaName)
-		deleteExistingService(config,config.rmdAcsName)
+		#deleteExistingService(config,config.rmdAcsName)
 		deleteExistingService(config,config.rmdPredixAssetName)
 		deleteExistingService(config,config.rmdPredixTimeseriesName)
 		deleteExistingService(config,config.rmdPostgres)
