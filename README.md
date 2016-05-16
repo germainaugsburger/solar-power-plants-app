@@ -10,7 +10,7 @@ You can view a running version of the  [Reference App](https://rmd-ref-app.run.a
         User: rmd_user_1
         Password: RMD_user_1
         
-You can view our <a href=https://youtu.be/2MGPTJ8yjyc target="_blank">Video</a> and later run the [deployment script](#to-download-and-push-reference-app) which will push the Reference App to your own Cloud Foundry space so you can quickly start trying out various Predix Services.
+You can view our <a href=https://youtu.be/2MGPTJ8yjyc target="_blank">Video</a> and later run the [deployment script](https://www.predix.io/resources/tutorials/tutorial-details.html?tutorial_id=1473&tag=1610&journey=Connect%20devices%20using%20the%20Reference%20App&resources=1592,1473,1600#deploy) which will push the Reference App to your own Cloud Foundry space so you can quickly start trying out various Predix Services.
 
 Now, take a few moments to learn all about  Predix, using Reference App as a guide.  There is lots to discover and soon you'll be creating Predix Apps of your own.
 
