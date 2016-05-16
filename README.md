@@ -137,7 +137,6 @@ The reference app defines some apis and message bodies that are needed to commun
 ### More Details
 * [RMD overview](docs/overview.md) - the Remote Monitoring & Diagnostics use-case
 * [Front end development notes](https://github.com/predixdev/rmd-ref-app-ui/tree/master/public/docs/frontEndDev.md) - details on front end configuration, controllers, widgets, etc.
-* [How to customize a widget](https://github.ge.com/predixdev/rmd-ref-app-ui/tree/master/public/docs/customizeWidget.md) - steps to create a custom Predix dashboard widget.
 * [Securing an application](docs/security.md)
 * [More GE resources](docs/resources.md)
 
