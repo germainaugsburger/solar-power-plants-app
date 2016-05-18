@@ -1,48 +1,48 @@
 [submodule "ext-interface"]
 	path = ext-interface
-	url = http://github.com/PredixDev/ext-interface.git
+	url = http://github.com/germainaugsburger/ext-interface.git
 [submodule "asset-bootstrap"]
 	path = asset-bootstrap
-	url = http://github.com/PredixDev/asset-bootstrap.git
+	url = http://github.com/germainaugsburger/asset-bootstrap.git
 [submodule "timeseries-bootstrap"]
 	path = timeseries-bootstrap
-	url = http://github.com/PredixDev/timeseries-bootstrap.git
+	url = http://github.com/germainaugsburger/timeseries-bootstrap.git
 [submodule "data-seed-service"]
 	path = data-seed-service
-	url = http://github.com/PredixDev/data-seed-service.git
+	url = http://github.com/germainaugsburger/data-seed-service.git
 [submodule "dataingestion-service"]
 	path = dataingestion-service
-	url = http://github.com/PredixDev/dataingestion-service.git
+	url = http://github.com/germainaugsburger/dataingestion-service.git
 [submodule "machinedata-simulator"]
 	path = machinedata-simulator
-	url = http://github.com/PredixDev/machinedata-simulator.git
+	url = http://github.com/germainaugsburger/machinedata-simulator.git
 [submodule "rmd-datasource"]
 	path = rmd-datasource
-	url = http://github.com/PredixDev/rmd-datasource.git
+	url = http://github.com/germainaugsburger/rmd-datasource.git
 [submodule "fdh-router-service"]
 	path = fdh-router-service
-	url = http://github.com/PredixDev/fdh-router-service.git
+	url = http://github.com/germainaugsburger/fdh-router-service.git
 [submodule "rmd-analytics"]
 	path = rmd-analytics
-	url = http://github.com/PredixDev/rmd-analytics.git
+	url = http://github.com/germainaugsburger/rmd-analytics.git
 [submodule "rmd-orchestration"]
 	path = rmd-orchestration
-	url = http://github.com/PredixDev/rmd-orchestration.git
+	url = http://github.com/germainaugsburger/rmd-orchestration.git
 [submodule "rmd-ref-app-ui"]
 	path = rmd-ref-app-ui
-	url = http://github.com/PredixDev/rmd-ref-app-ui.git
+	url = http://github.com/germainaugsburger/rmd-ref-app-ui.git
 [submodule "predix-websocket-server"]
 	path = predix-websocket-server
-	url = http://github.com/PredixDev/predix-websocket-server.git
+	url = http://github.com/germainaugsburger/predix-websocket-server.git
 [submodule "predix-rest-client"]
 	path = predix-rest-client
-	url = http://github.com/PredixDev/predix-rest-client.git
+	url = http://github.com/germainaugsburger/predix-rest-client.git
 [submodule "predix-websocket-client"]
 	path = predix-websocket-client
-	url = http://github.com/PredixDev/predix-websocket-client.git
+	url = http://github.com/germainaugsburger/predix-websocket-client.git
 [submodule "predix-microservice-cf-spring"]
 	path = predix-microservice-cf-spring
-	url = http://github.com/PredixDev/predix-microservice-cf-spring.git
+	url = http://github.com/germainaugsburger/predix-microservice-cf-spring.git
 [submodule "predix-microservice-cf-jsr"]
         path = predix-microservice-cf-jsr
-        url = http://github.com/PredixDev/predix-microservice-cf-jsr.git
+        url = http://github.com/germainaugsburger/predix-microservice-cf-jsr.git
