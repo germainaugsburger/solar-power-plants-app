@@ -131,7 +131,8 @@ for opt, arg in opts:
 # check check login
 user, org, space = checkRequirements()
 if len(instanceAppender) == 0:
-    instanceAppender = user.strip().split("@")[0].replace('.', '_')
+    #instanceAppender = user.strip().split("@")[0].replace('.', '_')
+    instanceAppender = "solar"
 print ('using Appender', instanceAppender)
 
 # check or create a directory for Reference application
@@ -157,7 +158,8 @@ dataSourceAppName = instanceAppender+"_rmd_datasource"
 httpDataRiverAppName = instanceAppender+"_http_datariver"
 dataIngestionAppName = instanceAppender+"_dataingestion_service"
 machineSimulatorAppName = instanceAppender+"_machinedata_simulator"
-uiAppName = instanceAppender+"_rmd_ref_app_ui"
+#uiAppName = instanceAppender+"_rmd_ref_app_ui"
+uiAppName = "solar-power-plants-app"
 websocketAppName = instanceAppender+"_websocket_service"
 
 if environment == 'PROD':
